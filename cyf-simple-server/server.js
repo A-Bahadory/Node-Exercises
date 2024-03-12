@@ -10,16 +10,24 @@ const app = express();
 //Here, we register some handlers for different routes.
 //(You can add more routes.)
 app.get("/", function (request, response) {
-    response.send("Hello CYF");
+  response.send("Hello <h1>CYF !</h1>");
 });
 
 app.get("/two", function (request, response) {
-    response.send("Another route");
+  response.send("Another route");
 });
 
-app.get("/numbers", function(request, response) {
+app.get("/numbers", function (request, response) {
   const someData = [1, 2, 3];
   response.json(someData);
+});
+app.get("/string", function (request, response) {
+  const someString = ["hello this is a array of string"];
+  response.json(someString);
+});
+app.get("/time", function (request, response) {
+  const todayDate = new Date("March 12, 24 14:20");
+  response.json(todayDate);
 });
 
 //Tell the server to start listening for requests.
